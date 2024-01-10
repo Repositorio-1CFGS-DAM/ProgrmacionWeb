@@ -6,34 +6,14 @@
     <title>ProgramacionWeb - Repositorio-1CFGS-DAW</title>
 </head>
 <body>
-    <h1>ProgramacionWeb - Repositorio-1CFGS-DAW</h1>
-    <h2>Archivos:</h2>
-    <ul id="fileList">
-    </ul>
 
-    <script>
-        const repositoryUrl = 'https://tu-usuario.github.io/Repositorio-1CFGS-DAW/ProgramacionWeb/';
-        fetch(repositoryUrl)
-            .then(response => response.text())
-            .then(data => {
-                const parser = new DOMParser();
-                const htmlDocument = parser.parseFromString(data, 'text/html');
-                const links = Array.from(htmlDocument.querySelectorAll('a[href]'));
-                const htmlFiles = links
-                    .filter(link => link.getAttribute('href').endsWith('.html'))
-                    .map(link => link.getAttribute('href'));
-                const fileList = document.getElementById('fileList');
-                htmlFiles.forEach(file => {
-                    const listItem = document.createElement('li');
-                    const fileLink = document.createElement('a');
-                    fileLink.href = repositoryUrl + file;
-                    fileLink.textContent = file;
-                    listItem.appendChild(fileLink);
-                    fileList.appendChild(listItem);
-                });
-            })
-            .catch(error => console.error('Error al obtener la lista de archivos:', error));
-    </script>
+    <h1>ProgramacionWeb - Repositorio-1CFGS-DAW</h1>
+
+    <ul>
+        <li><a href="archivo1.html">Archivo 1</a></li>
+        <li><a href="archivo2.html">Archivo 2</a></li>
+        <li><a href="archivo3.html">Archivo 3</a></li>
+    </ul>
 
 </body>
 </html>
